@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CurrencyService } from './services/currency.service';
 import { Subject, takeUntil } from 'rxjs';
 import { SimpleCurrencyInterface } from './types/simpleCurrency.interface';
+import { ErrorService } from '../../services/error.service';
 
 @Component({
   selector: 'app-header',
@@ -9,15 +10,15 @@ import { SimpleCurrencyInterface } from './types/simpleCurrency.interface';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  constructor(private currencyService: CurrencyService) {}
+  constructor(
+    private currencyService: CurrencyService,
+    private errorService: ErrorService
+  ) {}
   unsubscribe$ = new Subject<void>();
-  // currency: any[] = [];
-  currency: any[] = [
-    { code: 'EUR', price: 23.12 },
-    { code: 'USD', price: 33.33 },
-  ];
+  currency: any[] = [];
+
   ngOnInit(): void {
-    // this.getData();
+    this.getData();
   }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
@@ -28,8 +29,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .getCurrency()
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((response) => {
-        this.currency = this.convertToArray(response.quotes);
-        console.log(this.currency);
+        if (response.success) {
+          this.currency = this.convertToArray(response.quotes);
+        } else {
+          this.errorService.show(response);
+        }
       });
   }
   // from quotes:{UAHEUR:33.3323, UAHUSD:22.22223} to
