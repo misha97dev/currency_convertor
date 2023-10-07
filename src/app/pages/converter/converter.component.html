@@ -1,0 +1,51 @@
+<section class="container converter-page">
+  <div class="converter-page__card">
+    <h2 class="converter-card__title">Converter</h2>
+    <form class="converter-form" name="convertor">
+      <div class="converter-form__fields">
+        <input
+          [(ngModel)]="inputOne"
+          name="inputOne"
+          class="converter-form__field"
+          type="tel"
+          mask="separator.2"
+          (focusout)="submit(1)"
+        />
+        <select
+          [(ngModel)]="selectOne"
+          class="converter-form__field"
+          name="selectOne"
+          (change)="submit(2)"
+        >
+          <option *ngFor="let item of currencyArrayOne" value="{{ item }}">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+      <div class="converter-form__img">
+        <img src="./../../../assets/icons/arrows-white.svg" class="desktop" />
+        <img src="./../../../assets/icons/arrows-black.svg" class="tablet" />
+      </div>
+      <div class="converter-form__fields">
+        <input
+          [(ngModel)]="inputTwo"
+          name="inputTwo"
+          class="converter-form__field"
+          type="tel"
+          mask="separator.2"
+          (focusout)="submit(2)"
+        />
+        <select
+          [(ngModel)]="selectTwo"
+          class="converter-form__field"
+          name="selectTwo"
+          (change)="submit(1)"
+        >
+          <option *ngFor="let item of currencyArrayTwo" value="{{ item }}">
+            {{ item }}
+          </option>
+        </select>
+      </div>
+    </form>
+  </div>
+</section>

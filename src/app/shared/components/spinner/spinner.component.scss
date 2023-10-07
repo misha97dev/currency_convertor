@@ -1,0 +1,64 @@
+.spinner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba($color: #000000, $alpha: 0.5);
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    z-index: 990;
+  }
+
+  &__area {
+    border: 15px solid transparent;
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
+    mix-blend-mode: overlay;
+  }
+}
+
+img {
+  width: 120px;
+  animation-name: scale;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.spinner-second {
+  border-top-color: rgb(255, 255, 255);
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+.spinner-first {
+  border-bottom-color: #ffffff;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}

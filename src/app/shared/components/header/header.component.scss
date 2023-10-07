@@ -1,0 +1,44 @@
+@import "./../../../../assets/styles/variables.scss";
+.header {
+  background-color: $dark;
+  color: $font_white;
+  padding: 12px;
+  &__logo {
+    flex: 1;
+    font-size: 28px;
+  }
+  &__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    column-gap: 20px;
+  }
+  &__currency {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    column-gap: 24px;
+  }
+}
+.currency-item {
+  &__label {
+    font-weight: 600;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header {
+    &__currency {
+      flex-direction: column;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      row-gap: 8px;
+    }
+  }
+}

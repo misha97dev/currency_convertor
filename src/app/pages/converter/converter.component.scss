@@ -1,0 +1,111 @@
+@import "./../../../assets/styles/variables.scss";
+.tablet {
+  display: none;
+}
+.converter-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: calc(100% - 52px);
+  &__card {
+    background: $dark;
+    color: $font_white;
+    padding: 20px 30px 40px 30px;
+    min-width: 400px;
+  }
+}
+.converter-card {
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
+}
+.converter-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  column-gap: 60px;
+  &__fields {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    row-gap: 32px;
+    color: $font_black;
+    input {
+      max-width: 200px;
+      padding: 20px 10px;
+      font-size: 28px;
+    }
+    select {
+      height: 40px;
+      font-size: 20px;
+      max-width: 100px;
+      width: 100%;
+      padding: 8px;
+    }
+  }
+  &__img {
+    img {
+      width: 80px;
+    }
+  }
+  &__field {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: block;
+  }
+  .converter-page {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    &__card {
+      margin-top: 32px;
+      background: transparent;
+      color: $font_black;
+      padding: 0;
+      min-width: 200px;
+    }
+  }
+  .converter-form {
+    flex-direction: column;
+    row-gap: 60px;
+    &__fields {
+      row-gap: 32px;
+      input {
+        color: $font_white;
+        max-width: 240px;
+        background-color: $dark;
+      }
+      select {
+        height: 40px;
+        background-color: $dark;
+        color: $font_white;
+      }
+    }
+  }
+}

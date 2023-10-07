@@ -1,0 +1,12 @@
+<header *ngIf="currency.length > 0" class="header">
+  <div class="container header__container">
+    <div class="header__logo">MY LOGO</div>
+    <div class="header__currency">
+      <div *ngFor="let item of currency" class="currency-item">
+        <span class="currency-item__label">{{ item.code }}</span>
+        :
+        <span>{{ item.price }} UAH</span>
+      </div>
+    </div>
+  </div>
+</header>

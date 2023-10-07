@@ -1,0 +1,10 @@
+<div class="error" *ngIf="errorMessage()">
+  <div class="error__card">
+    <img
+      class="error__close"
+      src="./../../../../assets/icons/x-close.svg"
+      (click)="close()"
+    />
+    <p class="error__message">{{ message }}</p>
+  </div>
+</div>
